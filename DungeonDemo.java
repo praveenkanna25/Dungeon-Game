@@ -11,15 +11,21 @@ public class DungeonDemo {
 		System.out.println("Enter the Adventure Position");
 		 int adr=sc.nextInt();
 		 int adc=sc.nextInt();
+		 System.out.println("Enter the Monster position:");
+		 int mtr=sc.nextInt();
+		 int mtc=sc.nextInt();
 		System.out.println("Enter the gold Position");
 		int gdr=sc.nextInt();
 		int gdc=sc.nextInt();
 		char[][] game = new char[row+1][col+1];
 		game[adr][adc] = 'A';
+		game[mtr][mtc]='M';
 		game[gdr][gdc] = 'G';
 		
 		int adventurerow=-1;
 		int adventurecol=-1;
+		int monsterrow=-1;
+		int monstercol=-1;
 		int goldrow=-1;
 		int goldcol=-1;
 		
@@ -31,15 +37,24 @@ public class DungeonDemo {
 	                } else if (game[i][j] == 'G') {
 	                    goldrow = i;
 	                    goldcol = j;
+	                }else if(game[i][j]=='M') {
+	                	monsterrow=i;
+	                	monstercol=j;
+	                	
 	                }
 				  
 				  
 			}
 		}
-		int step = Math.abs(adventurerow-goldrow) + Math.abs(adventurecol-goldcol);
-
-	      
-        System.out.println("step to reach:" + step);
+		int stepadventure = Math.abs(adventurerow-goldrow) + Math.abs(adventurecol-goldcol);
+		int stepmonster = Math.abs(monsterrow-goldrow) + Math.abs(monstercol-goldcol);
+		
+		if(stepmonster<stepadventure) {
+			System.out.println(" No  Possible solution");
+			
+		}
+		else
+        System.out.println("step to reach:" + stepadventure);
 				
 	}
 
