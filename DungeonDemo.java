@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class DungeonDemo5 {
+
+public class DungeonDemo {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the row and column:");
